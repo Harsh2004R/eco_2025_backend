@@ -1,11 +1,12 @@
 import express from "express";
 import connection from "./db.js";
 import dotenv from "dotenv";
+import userRouter from "./Routes/user.routes.js"
 dotenv.config();
 
 const app = express();
 
-
+app.use("/api/user", userRouter)
 app.get("/", (req, res) => {
     res.send("Home...")
 })
