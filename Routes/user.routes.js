@@ -1,12 +1,12 @@
-import express, { json } from "express";
-import { userGetController,userRegistration } from "../Controllers/userController.js";
+import express from "express";
+import { userLoginController, userRegistration } from "../Controllers/userController.js";
 
 
 
 const userRouter = express.Router();
 userRouter.use(express.json());
 
-userRouter.get("/login", userGetController);
+userRouter.post("/login", userLoginController);
 userRouter.post("/register", userRegistration);
 
 

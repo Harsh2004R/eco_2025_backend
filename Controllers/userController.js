@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config()
 
 
-export const userGetController = async (req, res) => {
+export const userLoginController = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
         res.status(401).json({ msg: "User must provide email or password" })
