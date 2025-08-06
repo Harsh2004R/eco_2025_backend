@@ -24,7 +24,6 @@ export const userLoginController = async (req, res) => {
             msg: "Login successful",
             token: token,
             user: {
-                cart: user.cart,
                 userId: user._id,
                 email: user.email,
             }
@@ -50,7 +49,7 @@ export const userRegistration = async (req, res) => {
         const hashedPass = await bcrypt.hash(password, 5);
         const newUser = new userModel({ phone, email, password: hashedPass });
         await newUser.save();
-        res.status(200).json({ msg: "New user created", new_user: req.body })
+        res.status(200).json({ msg: "New user created", data: req.body, })
     } catch (error) {
         res.status(500).json({ msg: "Failed to add new user", error: error.message });
     }
